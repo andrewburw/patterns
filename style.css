@@ -1,0 +1,29 @@
+.dot {
+border: 1px solid #000;
+border-radius: 500px;
+height: 5px;
+width: 5px;
+position: absolute;
+top: 0px;
+left: 0px;
+background-color: #000;
+}
+.cx {
+  position: absolute;
+left: 1000px;
+
+}
+.cy {
+  position: absolute;
+left: 1050px;
+
+}
+
+body {
+
+   background-color: black;
+}
+.line {
+
+  //display: none;
+}
