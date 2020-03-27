@@ -6,6 +6,21 @@ let lineNameArr = [];
 let connectCount = -1;
 
 
+
+  let w=window,
+  d=document,
+  e=d.documentElement,
+  z=d.getElementsByTagName('body')[0],
+  x_disp=w.innerWidth||e.clientWidth||z.clientWidth,
+  y_disp=w.innerHeight||e.clientHeight||z.clientHeight;
+
+ x_disp = x_disp - 100
+ y_disp = y_disp - 100
+
+
+
+
+
 function generateConnectCount() {
   for (let i = 0; i < dotNameArr.length-1; i++) {
       for (let j = i + 1; j < dotNameArr.length; j++) {
@@ -59,9 +74,9 @@ for (let i = 0; i <= g; i++) {
 }
 
 generateConnectCount()
-//g = g-1
-// for (let i = 0  ; i <= Math.pow(l, 2); i++) {
+
 for (let i = 0  ; i <= connectCount; i++) {
+
 
 
   clEements.push('<line class="line" id='+ "l"+ i +' x1="50" y1="50" x2="100" y2="100" style="stroke:white;stroke-width:1" />')
@@ -70,10 +85,9 @@ for (let i = 0  ; i <= connectCount; i++) {
 
   $('#app')
   //   .html('<svg height=' + $(window).height()+' width='+ $(window).width()+ ' viewBox="0 0 '+$(window).width()+' '+$(window).height()+'"> '+ clEements.join("") +'</svg>')
-     .html('<svg height="500" width="1000" viewBox="0 0 500 1000"> '+ clEements.join("") +'</svg>')
+     .htmL('<svg height='+ y_disp+' width='+x_disp+' viewBox="0 0 '+ y_disp+' '+x_disp+'"> '+ clEements.join("") +'</svg>')
 
 }
-
 
 
 function changeCirclePosition(elm,id) {
@@ -95,7 +109,12 @@ function changeCirclePosition(elm,id) {
 
  $(id).attr("cx",elm.x )
  $(id).attr("cy",elm.y )
+
+
 }
+
+
+
 
 function changeLine(idCircle1,idCircle2,idLine){
   let krug1_cx = $(idCircle1).attr("cx")
@@ -103,7 +122,12 @@ function changeLine(idCircle1,idCircle2,idLine){
   let krug2_cx = $(idCircle2).attr("cx")
   let krug2_cy = $(idCircle2).attr("cy")
 
- let line = $(idLine).get(0);
+
+ let line = $(idLine).elems[0]
+
+
+
+
  let len = dist(line.x1.baseVal.value, line.x2.baseVal.value,
                 line.y1.baseVal.value, line.y2.baseVal.value);
 
@@ -112,14 +136,14 @@ function changeLine(idCircle1,idCircle2,idLine){
   	return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
   }
 
-if (len > 200) {
+if (len > 300) {
 
-$(idLine).hide(20);
+$(idLine).hide();
 
 
 } else {
 
- $(idLine).show(20);
+ $(idLine).show();
 
 }
 
@@ -147,7 +171,7 @@ for (let i = 0; i < dotNameArr.length-1; i++) {
     p++
 
 
-  //   changeLine('#k'+ i,'#k'+ j,'#l' + p )
+     changeLine('#k'+ i,'#k'+ j,'#l' + p )
          //console.log('#k'+ i +' #k'+j+' #l' + p );
   }
 }
@@ -157,10 +181,10 @@ for (let i = 0; i < dotNameArr.length-1; i++) {
 }
 
 
-circleCreator(100)
-setInterval(run, 30);
-
-
+circleCreator(30)
+setInterval(run, 100);
+//console.log($('#l1')[0])
+//run()
 for (var i = 0; i < 1; i++) {
 //run()
 }
