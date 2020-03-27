@@ -165,5 +165,5 @@ for (let i = 0; i < dotNameArr.length-1; i++) {
 }
 
 
-circleCreator(30)
-setInterval(run, 70);
+circleCreator(50)
+setInterval(run, 150);
