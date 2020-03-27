@@ -25,3 +25,9 @@ body {
   opacity: 0;
   transition: visibility 0s 2s, opacity 2s linear;
 }
+
+svg {
+  position: absolute;
+     top: 10%;
+     left: 30%;
+}

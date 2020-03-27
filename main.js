@@ -7,20 +7,6 @@ let connectCount = -1;
 
 
 
-  let w=window,
-  d=document,
-  e=d.documentElement,
-  z=d.getElementsByTagName('body')[0],
-  x_disp=w.innerWidth||e.clientWidth||z.clientWidth,
-  y_disp=w.innerHeight||e.clientHeight||z.clientHeight;
-
- x_disp = x_disp - 100
- y_disp = y_disp - 100
-
-
-
-
-
 function generateConnectCount() {
   for (let i = 0; i < dotNameArr.length-1; i++) {
       for (let j = i + 1; j < dotNameArr.length; j++) {
@@ -84,8 +70,7 @@ for (let i = 0  ; i <= connectCount; i++) {
 }
 
   $('#app')
-  //   .html('<svg height=' + $(window).height()+' width='+ $(window).width()+ ' viewBox="0 0 '+$(window).width()+' '+$(window).height()+'"> '+ clEements.join("") +'</svg>')
-     .htmL('<svg height='+ y_disp+' width='+x_disp+' viewBox="0 0 '+ y_disp+' '+x_disp+'"> '+ clEements.join("") +'</svg>')
+     .htmL('<svg height="800" width="800" viewBox="0 0 800 800"> '+ clEements.join("") +'</svg>')
 
 }
 
@@ -95,11 +80,11 @@ function changeCirclePosition(elm,id) {
 
 
 
-  if(elm.x + elm.dx > 1000 - 1 || elm.x + elm.dx < 1) {
+  if(elm.x + elm.dx > 800 - 1 || elm.x + elm.dx < 1) {
       elm.dx = -elm.dx;
   }
 
-  if(elm.y + elm.dy > 1000 - 1 || elm.y + elm.dy < 1) {
+  if(elm.y + elm.dy > 800 - 1 || elm.y + elm.dy < 1) {
     elm.dy = -elm.dy;
   }
 
@@ -136,7 +121,7 @@ function changeLine(idCircle1,idCircle2,idLine){
   	return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
   }
 
-if (len > 300) {
+if (len > 200) {
 
 $(idLine).hide();
 
@@ -176,15 +161,9 @@ for (let i = 0; i < dotNameArr.length-1; i++) {
   }
 }
 
-//console.log('skolko svjazej:'+ g);
 
 }
 
 
 circleCreator(30)
-setInterval(run, 100);
-//console.log($('#l1')[0])
-//run()
-for (var i = 0; i < 1; i++) {
-//run()
-}
+setInterval(run, 70);
